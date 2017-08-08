@@ -19,7 +19,7 @@ Add this to your application's `shard.yml`:
 ```yaml
 dependencies:
   kafka.cr:
-    github: [your-github-name]/kafka.cr
+    github: packetzero/kafka.cr
 ```
 
 ## Usage
@@ -36,7 +36,7 @@ TODO: Write development instructions here
 
 ## Contributing
 
-1. Fork it ( https://github.com/[your-github-name]/kafka.cr/fork )
+1. Fork it ( https://github.com/packetzero/kafka.cr/fork )
 2. Create your feature branch (git checkout -b my-new-feature)
 3. Commit your changes (git commit -am 'Add some feature')
 4. Push to the branch (git push origin my-new-feature)
@@ -44,4 +44,4 @@ TODO: Write development instructions here
 
 ## Contributors
 
-- [[your-github-name]](https://github.com/[your-github-name]) Alex Malone - creator, maintainer
+- [packetzero](https://github.com/packetzero) Alex Malone - creator, maintainer
