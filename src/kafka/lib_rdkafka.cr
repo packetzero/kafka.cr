@@ -42,10 +42,12 @@ end
   fun kafka_new = rd_kafka_new(t: Int32 , conf: ConfHandle, errstr: UInt8*, errstr_size: LibC::SizeT) : KafkaHandle
   fun kafka_destroy = rd_kafka_destroy(handle: KafkaHandle)
 
-  fun produce = rd_kafka_produce(topic : Topic, partition : Int32, msgflags : Int32, payload: Void*, len: LibC::SizeT,
+  fun produce = rd_kafka_produce(topic: Topic, partition : Int32, msgflags : Int32, payload: Void*, len: LibC::SizeT,
           key: Void*, keylen: LibC::SizeT, user_callback_arg: Void* ) : Int32
 
-  fun poll = rd_kafka_poll(rk : KafkaHandle, timeout_ms: Int32) : Int32
+  fun poll = rd_kafka_poll(rk: KafkaHandle, timeout_ms: Int32) : Int32
+  fun flush = rd_kafka_flush(rk: KafkaHandle, timeout_ms: Int32)
+
   fun last_error = rd_kafka_last_error() : Int32
   fun err2str = rd_kafka_err2str(code : Int32) : UInt8*
 
