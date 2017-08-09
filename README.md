@@ -1,16 +1,8 @@
 # kafka.cr
 
-*Do not use yet*
-
-STATUS: Basic producer stubs are in place.  From within a spec, can produce a string message on a topic and get a callback.
-
-TODO:
- - crystal Kafka class wrapper
- - producer specs
- - consumer stubs
- - consumer wrapper
- - consumer specs
- - better defaults and errors
+STATUS:
+ - Simple polling producer works for keys,values that are strings.
+ - Consumer has threading issue
 
 ## Installation
 
@@ -25,10 +17,10 @@ dependencies:
 ## Usage
 
 ```crystal
-require "kafka.cr"
+require "kafka"
 ```
 
-TODO: Write usage instructions here
+See examples in [kafka_examples](https://github.com/packetzero/kafka_examples.cr)
 
 ## Development
 
