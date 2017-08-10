@@ -5,6 +5,7 @@ module Kafka
 
     def initialize()
       @pErrStr = LibC.malloc(ERRLEN).as(UInt8*)
+
       @conf_handle = LibKafkaC.conf_new()
       raise "Failed to allocate Kafka Config" unless @conf_handle
     end
@@ -21,8 +22,9 @@ module Kafka
     end
 
     def set(name : String, value : String)
+
       res = LibKafkaC.conf_set(@conf_handle, name, value, @pErrStr, ERRLEN)
-      raise "Kafka.Config: set('#{name}') failed: #{String.new @pErrStr}" unless LibKafkaC::ConfResult::OK == res
+      raise "Kafka.Config: set('#{name}') failed: #{String.new @pErrStr}" unless LibKafkaC::OK == res
     end
 
     def set_msg_callback(cb : Proc(LibKafkaC::KafkaHandle, Void*, Void*) )

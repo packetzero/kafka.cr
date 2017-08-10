@@ -2,7 +2,7 @@
 
 STATUS:
  - Simple polling producer works for keys,values that are strings.
- - Consumer has threading issue
+ - Simple polling consumer works for keys,values that are strings.
 
 ## Installation
 
