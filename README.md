@@ -10,7 +10,7 @@ Add this to your application's `shard.yml`:
 
 ```yaml
 dependencies:
-  kafka.cr:
+  kafka:
     github: packetzero/kafka.cr
 ```
 
