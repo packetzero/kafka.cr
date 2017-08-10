@@ -1,2 +1,2 @@
 require "spec"
-require "../src/kafka.cr"
+require "../src/kafka/*"

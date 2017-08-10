@@ -1,4 +1,4 @@
-require "./kafka/*"
+require "./config.cr"
 
 
 module Kafka

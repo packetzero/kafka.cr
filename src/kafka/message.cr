@@ -1,4 +1,4 @@
-require "./kafka/*"
+require "./lib_rdkafka.cr"
 
 
 module Kafka

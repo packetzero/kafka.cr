@@ -1,5 +1,5 @@
 require "./lib_rdkafka.cr"
-
+require "./config.cr"
 
 module Kafka
 
