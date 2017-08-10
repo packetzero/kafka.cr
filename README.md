@@ -1,4 +1,8 @@
 # kafka.cr
+Crystal-lang wrapper for the 
+[librdkafka](https://github.com/edenhill/librdkafka) C-library
+[Apache Kafka](https://kafka.apache.org/) client.
+Contributions welcome.
 
 STATUS:
  - Simple polling producer works for keys,values that are strings.
