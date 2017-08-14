@@ -4,6 +4,10 @@ Crystal-lang wrapper for the
 [Apache Kafka](https://kafka.apache.org/) client.
 Contributions welcome.
 
+NOTE: there are a couple of other kafka.cr projects.  If I had seen them, I would have worked with them or contributed to them instead.  In any case, this was a good way to help me learn the C-bindings of Crystal.
+ - [decioferreira/kafka.cr](https://github.com/decioferreira/kafka.cr)
+ - [maiha/kafka.cr](https://github.com/maiha/kafka.cr)
+
 STATUS:
  - Simple polling producer works for keys,values that are strings.
  - Simple polling consumer works for keys,values that are strings.
