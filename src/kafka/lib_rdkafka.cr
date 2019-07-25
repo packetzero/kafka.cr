@@ -55,7 +55,7 @@ struct Message
           #* - \c err!=0: Error string length */
   key : UInt8* #void   *key;               /**< Depends on the value of \c err :
           #* - \c err==0: Optional message key */
-  ken_len : LibC::SizeT #size_t  key_len;           /**< Depends on the value of \c err :
+  key_len : LibC::SizeT #size_t  key_len;           /**< Depends on the value of \c err :
           #* - \c err==0: Optional message key length*/
   offset : Int64 #int64_t offset;            /**< Consume:
           #    * - Message offset (or offset for error
