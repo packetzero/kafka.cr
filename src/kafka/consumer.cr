@@ -25,9 +25,6 @@ module Kafka
 
       @topic_conf = LibKafkaC.topic_conf_new();
 
-      err = LibKafkaC.topic_conf_set(@topic_conf, "offset.store.method", "broker", @pErrStr, ERRLEN)
-      raise "Error setting topic conf offset.store.method #{String.new @pErrStr}" if err != LibKafkaC::OK
-
       # Set default topic config for pattern-matched topics.
       LibKafkaC.conf_set_default_topic_conf(conf, @topic_conf);
 
@@ -47,7 +44,7 @@ module Kafka
 
     # Set the topic to use for *produce()* calls.
     # Raises exception on error.
-    def set_topic_partition(name : String, partition : Int32 = 0) #LibKafkaC::PARTITION_UNASSIGNED)
+    def set_topic_partition(name : String, partition : Int32 = LibKafkaC::PARTITION_UNASSIGNED)
       raise "Can't set topic while running." if @running
 
       unless @topics
@@ -57,9 +54,8 @@ module Kafka
 
       LibKafkaC.topic_partition_list_add(@topics, name, partition)
 
-      err = LibKafkaC.assign(@handle, @topics)
-      raise "Error assigning topic partitions err=#{err}" if err != 0
-
+      err = LibKafkaC.subscribe(@handle, @topics)
+      raise "Error subscribing to topic err=#{err}" if err != 0
     end
 
     # dequeues a single message

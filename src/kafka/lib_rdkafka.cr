@@ -104,7 +104,7 @@ end
   fun topic_partition_list_add = rd_kafka_topic_partition_list_add(tplist: TopicPartitionList, topic: UInt8*, partition: Int32) : Void* # TopicPartition
   fun topic_partition_list_destroy = rd_kafka_topic_partition_list_destroy(tplist: TopicPartitionList)
   fun assign = rd_kafka_assign(rk: KafkaHandle, topics: TopicPartitionList) : Int32
-
+  fun subscribe = rd_kafka_subscribe(rk: KafkaHandle, subscription: TopicPartitionList) : Int32
 
   fun poll = rd_kafka_poll(rk: KafkaHandle, timeout_ms: Int32) : Int32
   fun flush = rd_kafka_flush(rk: KafkaHandle, timeout_ms: Int32)
