@@ -18,16 +18,15 @@ module Kafka
     end
 
     def to_unsafe
-      return @conf_handle
+      @conf_handle
     end
 
     def set(name : String, value : String)
-
       res = LibKafkaC.conf_set(@conf_handle, name, value, @pErrStr, ERRLEN)
       raise "Kafka.Config: set('#{name}') failed: #{String.new @pErrStr}" unless LibKafkaC::OK == res
     end
 
-    def set_msg_callback(cb : Proc(LibKafkaC::KafkaHandle, Void*, Void*) )
+    def set_msg_callback(cb : Proc(LibKafkaC::KafkaHandle, LibKafkaC::Message*, Void*, Void) )
       LibKafkaC.conf_set_dr_msg_cb @conf_handle, cb
     end
   end
