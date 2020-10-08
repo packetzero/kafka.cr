@@ -424,6 +424,7 @@ end
 
   fun last_error = rd_kafka_last_error() : Int32
   fun err2str = rd_kafka_err2str(code : Int32) : UInt8*
+  fun errno2err = rd_kafka_errno2err(errno : Int32) : ResponseError
 
   fun conf_set_log_cb = rd_kafka_conf_set_log_cb(conf: ConfHandle, cb: (KafkaHandle, Int32, UInt32, UInt8*) -> )
   fun set_log_level = rd_kafka_set_log_level(kh: KafkaHandle, level: Int32)

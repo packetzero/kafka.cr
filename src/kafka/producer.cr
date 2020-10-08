@@ -158,7 +158,7 @@ module Kafka
       res = LibKafkaC.produce(topic, part, flags, msg.to_unsafe, msg.size,
         key, (key.nil? ? 0 : key.size), nil)
       if res != LibKafkaC::OK
-        raise IO::Error.new("Failed to enqueue message (errno: #{Errno.value})")
+        raise KafkaException.new("Failed to enqueue message", Errno.value)
       end
 
       ensure_polling_fiber_is_running
@@ -193,7 +193,7 @@ module Kafka
       res = LibKafkaC.produce(topic, part, flags, msg.to_unsafe, msg.size,
         key, (key.nil? ? 0 : key.size), delivery_report_callback_arg)
       if res != LibKafkaC::OK
-        raise IO::Error.new("Failed to enqueue message (errno: #{Errno.value})")
+        raise KafkaException.new("Failed to enqueue message", Errno.value)
       end
       ensure_polling_fiber_is_running
       delivery_report_channel

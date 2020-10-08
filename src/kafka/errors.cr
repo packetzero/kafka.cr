@@ -5,10 +5,19 @@ module Kafka
     String.new(LibKafkaC.err2str(err.to_i32))
   end
 
+  def self.normalize_error(err : LibKafkaC::ResponseError) : LibKafkaC::ResponseError
+    err
+  end
+
+  def self.normalize_error(errno : Errno) : LibKafkaC::ResponseError
+    LibKafkaC.errno2err(errno)
+  end
+
   class KafkaException < Exception
     getter err : LibKafkaC::ResponseError
 
-    def initialize(message : String?, @err)
+    def initialize(message : String?, err : LibKafkaC::ResponseError | Errno)
+      @err = Kafka.normalize_error(err)
       super(format_error(message, @err))
     end
 
